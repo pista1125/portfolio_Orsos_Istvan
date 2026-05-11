@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const navLinks = [
-  { href: "#rolam", label: "Rólam" },
-  { href: "#oneletrajz", label: "Önéletrajz" },
-  { href: "#portfolio", label: "Portfólió" },
-  { href: "#kontakt", label: "Kapcsolat" },
+  { href: "/#rolam", label: "Rólam" },
+  { href: "/#oneletrajz", label: "Önéletrajz" },
+  { href: "/#portfolio", label: "Portfólió" },
+  { href: "/pedagogus-minosites#presentation", label: "Pedagógus I. program" },
+  { href: "/#kontakt", label: "Kapcsolat" },
 ];
 
 const Navbar = () => {
@@ -20,13 +22,23 @@ const Navbar = () => {
         </a>
         <div className="hidden md:flex gap-8">
           {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {l.label}
-            </a>
+            l.href.startsWith("/#") ? (
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {l.label}
+              </a>
+            ) : (
+              <Link
+                key={l.href}
+                to={l.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {l.label}
+              </Link>
+            )
           ))}
         </div>
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
@@ -43,14 +55,25 @@ const Navbar = () => {
           >
             <div className="flex flex-col gap-4 px-6 py-4">
               {navLinks.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setOpen(false)}
-                >
-                  {l.label}
-                </a>
+                l.href.startsWith("/#") ? (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setOpen(false)}
+                  >
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={l.href}
+                    to={l.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setOpen(false)}
+                  >
+                    {l.label}
+                  </Link>
+                )
               ))}
             </div>
           </motion.div>
