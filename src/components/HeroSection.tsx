@@ -60,7 +60,7 @@ const HeroSection = () => {
               <img
                 src={profileImg}
                 alt="Orsós István profilkép"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
             <div className="absolute -bottom-3 -right-3 bg-primary text-primary-foreground rounded-full px-4 py-2 text-sm font-semibold shadow-lg">
