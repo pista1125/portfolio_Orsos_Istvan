@@ -7,7 +7,7 @@ const navLinks = [
   { href: "/#rolam", label: "Rólam" },
   { href: "/#oneletrajz", label: "Önéletrajz" },
   { href: "/#portfolio", label: "Portfólió" },
-  { href: "/pedagogus-minosites#presentation", label: "Pedagógus I. program" },
+  { href: "/pedagogus-minosites", label: "Pedagógus I. program" },
   { href: "/#kontakt", label: "Kapcsolat" },
 ];
 

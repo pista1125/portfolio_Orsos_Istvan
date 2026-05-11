@@ -162,18 +162,29 @@ const Presentation = ({ onClose }: { onClose?: () => void }) => {
       subtitle: "Kézzelfogható matematika",
       icon: <Award size={32} />,
       content: (
-        <div className="flex flex-col md:flex-row gap-8 items-center">
-          <div className="flex-1 space-y-4">
-            <h3 className="text-2xl font-bold">Saját készítésű törtkészlet</h3>
-            <p>PLA filamentből (biológiailag lebomló) nyomtatott, multiszenzoros eszköz.</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Segíti az SNI/BTMN tanulók fogalomalkotását.</li>
-              <li>Lehetővé teszi a törtek vizuális összehasonlítását és műveleteit.</li>
-              <li>Csökkenti a matematika-szorongást a „tanári varázslat” erejével.</li>
+        <div className="flex flex-col md:flex-row gap-8 items-stretch">
+          <div className="flex-1 space-y-6">
+            <h3 className="text-3xl font-bold text-primary">Saját készítésű törtkészlet</h3>
+            <p className="text-xl">
+              A 3D nyomtatás lehetővé tette, hogy olyan egyedi eszközt hozzak létre, amely pontosan illeszkedik a tantervhez és a tanulók igényeihez.
+            </p>
+            <ul className="list-disc pl-8 space-y-3 text-lg">
+              <li><strong>Szenzoros élmény:</strong> A gyerekek fizikailag is kézbe vehetik az absztrakt fogalmakat.</li>
+              <li><strong>Hibajavítás:</strong> A körszeletek pontos illeszkedése azonnali, tanár nélküli önellenőrzést tesz lehetővé.</li>
+              <li><strong>Motiváció:</strong> A „helyben készült” eszközök növelik a diákok érdeklődését a technológia és a matek iránt.</li>
             </ul>
           </div>
-          <div className="w-full md:w-1/3 aspect-square bg-gray-200 rounded-xl flex items-center justify-center text-gray-400 italic">
-            [3D nyomtatott törtkészlet képe]
+          <div className="w-full md:w-2/5 p-8 bg-primary/5 rounded-[2rem] border-2 border-primary/10 flex flex-col justify-center space-y-6 shadow-inner">
+            <div className="space-y-2">
+              <h4 className="text-lg font-black text-primary uppercase tracking-tighter">Technikai adatok</h4>
+              <div className="h-1 w-12 bg-primary/30 rounded-full" />
+            </div>
+            <div className="space-y-4 text-base italic text-gray-600">
+              <p>• <strong>Anyaga:</strong> Környezetbarát, biológiailag lebomló PLA filament.</p>
+              <p>• <strong>Gyártás:</strong> Egyedi tervezés Tinkercad-ben, saját 3D nyomtatóval előállítva.</p>
+              <p>• <strong>Funkció:</strong> Törtek összehasonlítása, bővítése, egyszerűsítése és alapműveletek szemléltetése.</p>
+              <p className="pt-4 font-bold text-primary/60 not-italic text-center underline decoration-dotted underline-offset-4">Az eszközt a védésre magammal hozom és bemutatom.</p>
+            </div>
           </div>
         </div>
       )
@@ -327,11 +338,36 @@ const Presentation = ({ onClose }: { onClose?: () => void }) => {
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  };
+
   return (
-    <div className="fixed inset-0 z-[60] bg-white flex flex-col">
-      {/* Header */}
-      <div className="absolute top-6 right-6 z-10">
-        <Button variant="outline" size="icon" onClick={() => onClose ? onClose() : window.history.back()} className="rounded-full shadow-md hover:bg-gray-100">
+    <div className="relative w-full h-full bg-white flex flex-col overflow-hidden">
+      {/* Top Action Bar */}
+      <div className="absolute top-6 right-6 z-10 flex gap-3">
+        <Button 
+          variant="outline" 
+          size="icon" 
+          onClick={toggleFullscreen} 
+          className="rounded-full shadow-sm hover:bg-gray-100 hidden md:flex"
+          title="Teljes képernyő"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+        </Button>
+        <Button 
+          variant="outline" 
+          size="icon" 
+          onClick={() => onClose ? onClose() : window.history.back()} 
+          className="rounded-full shadow-sm hover:bg-gray-100"
+          title="Bezárás"
+        >
           <X className="h-6 w-6" />
         </Button>
       </div>
