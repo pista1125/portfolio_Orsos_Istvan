@@ -191,29 +191,39 @@ const Presentation = ({ onClose }: { onClose?: () => void }) => {
     },
     {
       title: "Digitális kompetencia és IKT",
-      subtitle: "Modern eszközök a matematika órán",
+      subtitle: "Saját fejlesztésű oktatási platform",
       icon: <BarChart3 size={32} />,
       content: (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="p-6 bg-purple-50 rounded-xl border border-purple-100 flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">K</div>
-            <h3 className="font-bold text-purple-900 text-lg">Kahoot! & Quizizz</h3>
-            <p className="text-sm">Játékos, versenyalapú visszacsatolás és ismétlés.</p>
+        <div className="space-y-8 text-xl">
+          <div className="p-8 bg-primary/5 rounded-[2rem] border-2 border-primary/20 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 2a14.5 14.5 0 0 1 0 20 14.5 14.5 0 0 1 0-20"/></svg>
+            </div>
+            <h3 className="text-3xl font-black text-primary mb-4 flex items-center gap-3">
+              <span className="px-4 py-1 bg-primary text-white rounded-xl text-xl">diakzona.hu</span>
+              Saját fejlesztésű keretrendszer
+            </h3>
+            <p className="leading-relaxed text-gray-700">
+              A tanítási folyamat során nem csupán kész eszközöket használok, hanem a saját magam által fejlesztett <strong>diakzona.hu</strong> weboldalon keresztül valósítom meg az interaktív oktatást.
+            </p>
           </div>
-          <div className="p-6 bg-pink-50 rounded-xl border border-pink-100 flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">W</div>
-            <h3 className="font-bold text-pink-900 text-lg">Wordwall</h3>
-            <p className="text-sm">Interaktív feladatsorok a gyakorláshoz és differenciáláshoz.</p>
-          </div>
-          <div className="p-6 bg-orange-50 rounded-xl border border-orange-100 flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">G</div>
-            <h3 className="font-bold text-orange-900 text-lg">GeoGebra</h3>
-            <p className="text-sm">Dinamikus szemléltetés és abszolút érték modellezése.</p>
-          </div>
-          <div className="p-6 bg-indigo-50 rounded-xl border border-indigo-100 flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-xl mb-4">T</div>
-            <h3 className="font-bold text-indigo-900 text-lg">Tinkercad</h3>
-            <p className="text-sm">Saját 3D eszközök tervezése és digitális kultúra integrálása.</p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 bg-blue-50 rounded-2xl border border-blue-100 flex flex-col items-center text-center shadow-sm">
+              <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mb-4">W</div>
+              <h4 className="font-bold text-blue-900 mb-1">Interaktív feladatok</h4>
+              <p className="text-sm text-gray-600">Wordwall jellegű, saját készítésű játékos feladatsorok.</p>
+            </div>
+            <div className="p-6 bg-purple-50 rounded-2xl border border-purple-100 flex flex-col items-center text-center shadow-sm">
+              <div className="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mb-4">K</div>
+              <h4 className="font-bold text-purple-900 mb-1">Motivációs mérés</h4>
+              <p className="text-sm text-gray-600">Beépített Kahoot és azonnali visszacsatolási rendszerek.</p>
+            </div>
+            <div className="p-6 bg-orange-50 rounded-2xl border border-orange-100 flex flex-col items-center text-center shadow-sm">
+              <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold mb-4">S</div>
+              <h4 className="font-bold text-orange-900 mb-1">Szemléltető eszközök</h4>
+              <p className="text-sm text-gray-600">Egyedi vizuális demonstrációs eszközök és IKT megoldások.</p>
+            </div>
           </div>
         </div>
       )
@@ -291,8 +301,8 @@ const Presentation = ({ onClose }: { onClose?: () => void }) => {
           <p className="font-bold italic bg-gray-100 p-4 rounded">„Ismertesse értékelési rendszerét! Milyen mérőeszközöket használ? Saját vagy online feladatlapokat?”</p>
           <ul className="list-disc pl-6 space-y-4">
             <li><strong>Komplex rendszer:</strong> Diagnosztikus bemeneti mérés, folyamatos formatív visszajelzés és szummatív témazáró dolgozatok.</li>
-            <li><strong>Saját fejlesztés:</strong> Gyakran használok saját készítésű feladatsorokat, melyeket a konkrét csoport szintjéhez igazítok. 3D nyomtatott eszközeim (törtkészlet) mérőeszközként is szolgálnak a megértés ellenőrzéséhez.</li>
-            <li><strong>Digitális és papír:</strong> Vegyesen alkalmazom. A Wordwall és Kahoot kiváló a gyors, digitális ellenőrzésre, míg a füzetben végzett munka a precizitást fejleszti.</li>
+            <li><strong>Saját fejlesztés:</strong> Gyakran használok saját készítésű feladatsorokat a <strong>diakzona.hu</strong> oldalamon. 3D nyomtatott eszközeim (törtkészlet) mérőeszközként is szolgálnak a megértés ellenőrzéséhez.</li>
+            <li><strong>Digitális és papír:</strong> Vegyesen alkalmazom. A saját fejlesztésű interaktív felületeim kiválóak a gyors ellenőrzésre, míg a füzetben végzett munka a precizitást fejleszti.</li>
             <li><strong>„Kis ötös” rendszer:</strong> Motivációs pontrendszer az aktív és pontos órai munkáért.</li>
           </ul>
         </div>
